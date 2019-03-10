@@ -135,9 +135,10 @@ class Scene extends Component{
   }
 
   handleWindowResize(){
-    let width = window.innerWidth;
-    let height = window.innerHeight;
-    this.camera.aspect = width/height;
+    this.width = window.innerWidth;
+    this.height = window.innerHeight;
+    this.renderer.setSize(this.width, this.height);
+    this.camera.aspect = this.width / this.height;
     this.camera.updateProjectionMatrix();
   }
 
@@ -162,8 +163,7 @@ class Scene extends Component{
       <div 
         ref={(container) => {this.container = container}}
         style={{width: width, height: height, position: 'absolute', overflow: 'hidden'}}
-      >
-      </div>
+      />
     )
   }
   
